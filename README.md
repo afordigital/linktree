@@ -1,4 +1,4 @@
-# The aforcado
+# Linktree
 
 Linktree is a personal presentation application, so that people can access both my work and our community.
 
