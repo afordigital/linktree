@@ -1,8 +1,7 @@
-import { defineConfig } from 'astro/config';
+// astro.config.ts
+import { defineConfig } from 'astro/config'
+import UnoCSS from 'unocss/astro'
 
-import tailwind from "@astrojs/tailwind";
-
-// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()]
-});
+  integrations: [UnoCSS()]
+})
