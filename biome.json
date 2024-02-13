@@ -1,0 +1,70 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.5.1/schema.json",
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "quoteProperties": "asNeeded",
+      "trailingComma": "es5",
+      "semicolons": "asNeeded"
+    }
+  },
+  "organizeImports": {
+    "enabled": false
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "tab",
+    "indentWidth": 2,
+    "lineWidth": 100,
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      "tsconfig.json",
+      "jsconfig.json"
+    ]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "useSimplifiedLogicExpression": "off",
+        "useOptionalChain": "off",
+        "noForEach": "off"
+      },
+      "correctness": {
+        "noUndeclaredVariables": "off"
+      },
+      "performance": {
+        "noDelete": "warn"
+      },
+      "security": {},
+      "style": {
+        "useConst": "off",
+        "noNonNullAssertion": "off",
+        "noParameterProperties": "warn",
+        "noRestrictedGlobals": "warn",
+        "noShoutyConstants": "warn",
+        "useExponentiationOperator": "warn",
+        "useFragmentSyntax": "warn",
+        "useShorthandArrayType": "warn"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noCatchAssign": "off",
+        "noExplicitAny": "off",
+        "noPrototypeBuiltins": "off",
+        "useValidTypeof": "off",
+        "useNamespaceKeyword": "off"
+      },
+      "nursery": {}
+    },
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      "tsconfig.json",
+      "jsconfig.json"
+    ]
+  }
+}
