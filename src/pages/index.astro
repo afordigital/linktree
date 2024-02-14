@@ -1,96 +1,29 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Card from '@/components/Card.astro';
+import Presentation from '@/components/Presentation.astro'
+import Nav from '@/components/Nav.astro'
+import Discord from '@/components/Discord.astro'
+import Github from '@/components/Github.astro'
+import Instagram from '@/components/Instagram.astro'
+import Portfolio from '@/components/Portfolio.astro'
+import Tiktok from '@/components/Tiktok.astro'
+import Twitch from '@/components/Twitch.astro'
+import Twitter from '@/components/Twitter.astro'
+import Youtube from '@/components/Youtube.astro'
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-	
-		<h1 class="text-white">Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+<Layout title="Afor Linktree">
+	<Nav/>
+	<main class="grid w-full h-full grid-cols-8 gap-4 pt-10">
+		<Presentation></Presentation>
+		<article class="col-span-2 bg-pink-400 min-h-[150px]">2</article>
+		<article class="col-span-3 row-span-2 bg-purple-500 min-h-[150px]">3</article>
+		<article class="col-span-5 bg-pink-400 min-h-[150px]">4</article>
+		<article class="col-span-5 bg-pink-500 min-h-[150px]">5</article>
+		<article class="bg-pink-200 col-span-2 min-h-[150px]">6</article>
+		<article class="bg-pink-500 col-span-2 min-h-[150px]">7</article>
+		<article class="bg-pink-100 col-span-2 min-h-[150px]">8</article>
+		<article class="bg-pink-500 col-span-2">9</article>
 	</main>
+	<footer class="w-full text-center text-white pt-8">Creado con 💕 por aforcita y los <a target="_blank" href="https://github.com/Afordin" class="font-bold text-white">esclavos</a> del sótano</footer>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
-</style>
