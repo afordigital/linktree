@@ -12,10 +12,13 @@
   "dependencies": {
     "@astrojs/check": "^0.5.3",
     "astro": "^4.3.6",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "prettier": "^3.2.5",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
     "@unocss/reset": "^0.58.5",
     "unocss": "^0.58.5"
   }

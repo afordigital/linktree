@@ -1,29 +1,38 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import Presentation from '@/components/Presentation.astro'
-import Nav from '@/components/Nav.astro'
-import Discord from '@/components/Discord.astro'
-import Github from '@/components/Github.astro'
-import Instagram from '@/components/Instagram.astro'
-import Portfolio from '@/components/Portfolio.astro'
-import Tiktok from '@/components/Tiktok.astro'
-import Twitch from '@/components/Twitch.astro'
-import Twitter from '@/components/Twitter.astro'
-import Youtube from '@/components/Youtube.astro'
+import Layout from "@/layouts/Layout.astro";
+import Presentation from "@/components/Presentation.astro";
+import Nav from "@/components/Nav.astro";
+import Discord from "@/components/Discord.astro";
+import Github from "@/components/Github.astro";
+import Instagram from "@/components/Instagram.astro";
+import Portfolio from "@/components/Portfolio.astro";
+import Tiktok from "@/components/Tiktok.astro";
+import TwitchStatus from "@/components/TwitchStatus.astro";
+import Twitch from "@/components/Twitch.astro";
+import Twitter from "@/components/Twitter.astro";
+import Youtube from "@/components/Youtube.astro";
+import Footer from "@/components/Footer.astro";
+
 ---
 
+
 <Layout title="Afor Linktree">
-	<Nav/>
-	<main class="grid w-full h-full grid-cols-8 gap-4 pt-10">
-		<Presentation></Presentation>
-		<article class="col-span-2 bg-pink-400 min-h-[150px]">2</article>
-		<article class="col-span-3 row-span-2 bg-purple-500 min-h-[150px]">3</article>
-		<article class="col-span-5 bg-pink-400 min-h-[150px]">4</article>
-		<article class="col-span-5 bg-pink-500 min-h-[150px]">5</article>
-		<article class="bg-pink-200 col-span-2 min-h-[150px]">6</article>
-		<article class="bg-pink-500 col-span-2 min-h-[150px]">7</article>
-		<article class="bg-pink-100 col-span-2 min-h-[150px]">8</article>
-		<article class="bg-pink-500 col-span-2">9</article>
-	</main>
-	<footer class="w-full text-center text-white pt-8">Creado con 💕 por aforcita y los <a target="_blank" href="https://github.com/Afordin" class="font-bold text-white">esclavos</a> del sótano</footer>
+  <header>
+    <Nav />
+  </header>
+  <main class="grid w-full h-full grid-cols-8 gap-4 pt-10">
+    <Presentation />
+    <Twitch />
+	<TwitchStatus />
+    <Discord />
+    <Portfolio />
+    <Youtube />
+    <Twitter />
+    <Instagram />
+    <Tiktok />
+    <Github />
+  </main>
+  <footer>
+    <Footer />
+  </footer>
 </Layout>
