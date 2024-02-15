@@ -23,7 +23,7 @@
       .then((data) => {
         if (data !== '-1'){
             const elem = document.getElementById("twitch-container")
-            elem.style.display = 'flex'
+            elem?.style.display = 'flex'
             getTitle()
         }
       })
@@ -40,7 +40,7 @@
       .then((response) => response.text())
       .then((data) => {
         const elem = document.getElementById("stream-title")
-        elem.innerText = `${data}`
+        elem?.innerText = `${data}`
       })
       .catch((error) => {
         console.error(error);
