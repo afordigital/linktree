@@ -6,7 +6,7 @@
   <div class="w-full h-full absolute bg-red-500 z-20 opacity-80">
     <div id="youtube-video" class="w-full h-full"></div>
   </div>
-  <div class="youtube-container absolute top-0 z-10 w-full h-full"></div>
+  <div id="youtube-container" class="absolute top-0 z-10 w-full h-full"></div>
 </article>
 
 <script>
@@ -28,15 +28,25 @@
                 <h2 style='color:white;'>${data.title}</h2>
             </a>
             `;
-      const elem = document.getElementsByClassName(
+      const elem = document.getElementById(
         "youtube-container"
-      )[0] as HTMLElement;
+      );
+      
+      if (!elem) return
+
+      elem?.classList.add('youtube-img')
       elem.style.backgroundImage = `url(https://img.youtube.com/vi/${data.id}/hqdefault.jpg)`;
-      elem.style.backgroundSize = "cover";
-      elem.style.backgroundRepeat = "no-repeat";
-      elem.style.backgroundPosition = "center";
+      
     })
     .catch((error) => {
       console.error(error);
     });
 </script>
+
+<style>
+  .youtube-img{
+    background-size: "cover";
+    background-repeat: "no-repeat";
+    background-position: "center";
+  }
+</style>
