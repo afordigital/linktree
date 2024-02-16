@@ -1,42 +1,26 @@
 ---
+import { fetchYoutubeInfo } from "@/services";
 
+const data = await fetchYoutubeInfo({ skip: 1 });
+const youtubeImg = `https://img.youtube.com/vi/${data.id}/hqdefault.jpg`;
 ---
 
 <article class="col-span-5 relative min-h-[150px]">
-  <div class="w-full h-full absolute bg-red-500 z-20 opacity-80">
-    <div id="youtube-video" class="w-full h-full"></div>
+  <div
+    id="youtube-video"
+    class="w-full h-full absolute top-0 z-10 bg-red-500 opacity-80"
+  >
+    <a
+      target="_blank"
+      class="w-full h-full decoration-none"
+      href=`https://www.youtube.com/watch?v=${data?.id}`
+    >
+      <h2 class="text-white">{data?.title}</h2>
+    </a>
   </div>
-  <div class="youtube-container absolute top-0 z-10 w-full h-full"></div>
+  <img
+    class="absolute top-0 left-0 w-full h-full object-cover -z-24 object-cc"
+    src={youtubeImg}
+    alt="youtube-image"
+  />
 </article>
-
-<script>
-  const BASE_URL = "https://decapi.me/youtube/latest_video?";
-
-  const USER_ID = "UCkDwFvETfXmnIwpX7lV3F1g";
-
-  const FORMAT = '{"id":"{id}","title":"{title}"}';
-
-  const QUERY_PARAMS = "no_livestream=0&no_shorts=0&skip=1";
-
-  const FINAL_URL = `${BASE_URL}id=${USER_ID}&format=${FORMAT}&${QUERY_PARAMS}`;
-
-  fetch(FINAL_URL)
-    .then((response) => response.json())
-    .then((data) => {
-      document.getElementById("youtube-video")!.innerHTML = `
-            <a target='_blank' style='text-decoration: none;' href='https://www.youtube.com/watch?v=${data.id}'>
-                <h2 style='color:white;'>${data.title}</h2>
-            </a>
-            `;
-      const elem = document.getElementsByClassName(
-        "youtube-container"
-      )[0] as HTMLElement;
-      elem.style.backgroundImage = `url(https://img.youtube.com/vi/${data.id}/hqdefault.jpg)`;
-      elem.style.backgroundSize = "cover";
-      elem.style.backgroundRepeat = "no-repeat";
-      elem.style.backgroundPosition = "center";
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-</script>
