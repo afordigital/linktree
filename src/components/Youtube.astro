@@ -1,26 +1,26 @@
 ---
-import { fetchYoutubeInfo } from "@/services";
+import { fetchYoutubeInfo } from '@/services';
 
 const data = await fetchYoutubeInfo({ skip: 1 });
 const youtubeImg = `https://img.youtube.com/vi/${data.id}/hqdefault.jpg`;
 ---
 
-<article class="col-span-5 relative min-h-[150px]">
+<article class='col-span-5 relative min-h-[150px]'>
   <div
-    id="youtube-video"
-    class="w-full h-full absolute top-0 z-10 bg-red-500 opacity-80"
+    id='youtube-video'
+    class='w-full h-full absolute top-0 z-10 bg-red-500 opacity-80'
   >
     <a
-      target="_blank"
-      class="w-full h-full decoration-none"
+      target='_blank'
+      class='w-full h-full decoration-none'
       href=`https://www.youtube.com/watch?v=${data?.id}`
     >
-      <h2 class="text-white">{data?.title}</h2>
+      <h2 class='text-white'>{data?.title}</h2>
     </a>
   </div>
   <img
-    class="absolute top-0 left-0 w-full h-full object-cover -z-24 object-cc"
+    class='absolute top-0 left-0 w-full h-full object-cover -z-24 object-cc'
     src={youtubeImg}
-    alt="youtube-image"
+    alt='youtube-image'
   />
 </article>
