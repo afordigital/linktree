@@ -1,6 +1,24 @@
 // uno.config.ts
-import { defineConfig } from 'unocss'
+import { defineConfig, presetIcons, presetWebFonts, presetUno } from 'unocss'
 
 export default defineConfig({
-  // ...UnoCSS options
+  theme: {
+    colors: {}
+  },
+  presets: [
+    presetUno(),
+    presetWebFonts({
+      provider: 'google',
+      fonts: {
+        montserrat: 'Montserrat'
+      }
+    }),
+    presetIcons({
+      cdn: 'https://esm.sh/',
+      extraProperties: {
+        display: 'inline-block',
+        'vertical-align': 'middle'
+      }
+    })
+  ]
 })
