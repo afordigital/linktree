@@ -1,4 +1,31 @@
 ---
+
 ---
 
-<article class="col-span-5 bg-pink-500 min-h-[150px]">1</article>
+<article style="background-image: url('./imgs/background.png'); background-repeat: repeat-x;" class="animated col-span-5 rounded-[24px] min-h-[150px]"></article>
+
+<style>
+  .animated {
+    animation-name: move;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-play-state: running;
+  }
+
+  @keyframes move {
+    from {
+        background-size: 150%;
+        background-position: 0 80%;
+        background-repeat: repeat-x;
+    }
+    to {
+        background-size: 150%;
+        background-position: -1901px 80%;
+        background-repeat: repeat-x;
+    }
+  }
+</style>

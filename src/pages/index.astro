@@ -12,18 +12,16 @@ import Twitch from "@/components/social/Twitch.astro";
 import Twitter from "@/components/social/Twitter.astro";
 import Youtube from "@/components/social/Youtube.astro";
 import Footer from "@/components/Footer.astro";
-
 ---
-
 
 <Layout title="Afor Linktree">
   <header>
     <Nav />
   </header>
-  <main class="grid w-full h-full grid-cols-8 gap-4 pt-10">
+  <main class="grid w-full h-full grid-cols-8 gap-4 pt-10 box">
     <Presentation />
     <Twitch />
-	<TwitchStatus />
+    <TwitchStatus />
     <Discord />
     <Portfolio />
     <Youtube />
@@ -36,3 +34,68 @@ import Footer from "@/components/Footer.astro";
     <Footer />
   </footer>
 </Layout>
+
+<style is:global>
+  :root {
+    --slide-in: slide-in 0.3s ease-in-out backwards;
+    --fade-in: fade-in 0.3s ease-in-out backwards;
+  }
+  .box {
+    animation: base-anim 0.3s ease-in-out;
+  }
+
+  .circle:nth-child(1) {
+    animation:
+      var(--fade-in) 0.2s,
+      var(--slide-in) 0.2s;
+  }
+  .circle:nth-child(2) {
+    animation:
+      var(--fade-in) 0.4s,
+      var(--slide-in) 0.4s;
+  }
+  .circle:nth-child(3) {
+    animation:
+      var(--fade-in) 0.6s,
+      var(--slide-in) 0.6s;
+  }
+  .circle:nth-child(4) {
+    animation:
+      var(--fade-in) 0.8s,
+      var(--slide-in) 0.8s;
+  }
+
+  @keyframes base-anim {
+    0% {
+      transform: scale(0);
+    }
+    80% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes slide-in {
+    0%,
+    50% {
+      transform: translateY(10px);
+    }
+    80% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      background: transparent;
+      opacity: 0;
+    }
+    100% {
+      background: #fff;
+      opacity: 100%;
+    }
+  }
+</style>
