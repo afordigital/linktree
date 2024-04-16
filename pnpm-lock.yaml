@@ -29,6 +29,9 @@ dependencies:
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
+  vanilla-tilt:
+    specifier: ^1.8.1
+    version: 1.8.1
 
 devDependencies:
   '@unocss/reset':
@@ -4698,6 +4701,10 @@ packages:
 
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+    dev: false
+
+  /vanilla-tilt@1.8.1:
+    resolution: {integrity: sha512-hPB1XUsnh+SIeVSW2beb5RnuFxz4ZNgxjGD78o52F49gS4xaoLeEMh9qrQnJrnEn/vjjBI7IlxrrXmz4tGV0Kw==}
     dev: false
 
   /vfile-location@5.0.2:

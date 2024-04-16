@@ -2,30 +2,12 @@
 
 ---
 
-<article style="background-image: url('./imgs/background.png'); background-repeat: repeat-x;" class="animated col-span-5 rounded-[24px] min-h-[150px]"></article>
+<article class="blur-effect text-white px-8 py-4 flex gap-x-4 items-center col-span-5 rounded-[24px] min-h-[200px]">
+  <img src="/public/imgs/profile_photo.jpeg" alt="profile-photo" class="rounded-full aspect-square w-[150px]" />
+  <div>
+    <h1 class="font-bold text-[36px]">¡Eyyy!</h1>
+    <p class="text-[20px]">Soy front-end developer y dedico todos mis días a aprender y divulgar lo que aprendo.</p>
+  </div>
+</article>
 
-<style>
-  .animated {
-    animation-name: move;
-    animation-duration: 10s;
-    animation-timing-function: linear;
-    animation-delay: 0;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: both;
-    animation-play-state: running;
-  }
 
-  @keyframes move {
-    from {
-        background-size: 150%;
-        background-position: 0 80%;
-        background-repeat: repeat-x;
-    }
-    to {
-        background-size: 150%;
-        background-position: -1901px 80%;
-        background-repeat: repeat-x;
-    }
-  }
-</style>

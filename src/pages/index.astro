@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Presentation from "@/components/social/Presentation.astro";
-import Nav from "@/components/Nav.astro";
 import Discord from "@/components/social/Discord.astro";
 import Github from "@/components/social/Github.astro";
 import Instagram from "@/components/social/Instagram.astro";
@@ -15,9 +14,8 @@ import Footer from "@/components/Footer.astro";
 ---
 
 <Layout title="Afor Linktree">
-  <header>
-    <Nav />
-  </header>
+  <div class="lamp lamp-left"></div>
+  <div class="lamp lamp-right"></div>
   <main class="grid w-full h-full grid-cols-8 gap-4 pt-10 box">
     <Presentation />
     <Twitch />
@@ -30,9 +28,6 @@ import Footer from "@/components/Footer.astro";
     <Tiktok />
     <Github />
   </main>
-  <footer>
-    <Footer />
-  </footer>
 </Layout>
 
 <style is:global>
@@ -42,6 +37,29 @@ import Footer from "@/components/Footer.astro";
   }
   .box {
     animation: base-anim 0.3s ease-in-out;
+  }
+
+  .lamp {
+  position: absolute;
+  width: 20vh;
+  height: 400vh;
+  z-index: 0;
+  background-image: radial-gradient(
+    ellipse,
+    rgba(82, 116, 168, 0.5),
+    rgba(82, 116, 168, 0.2) 25%,
+    rgba(82, 116, 168, 0) 50%
+  );
+  top: -220vh;
+} 
+
+  .lamp-left {
+    left: 42vh;
+    transform: rotate(15deg) scale(0.7) perspective(23vh) rotateX(30deg);
+  }
+  .lamp-right {
+    left: 42vh;
+    transform: rotate(-15deg) scale(0.7) perspective(23vh) rotateX(30deg);
   }
 
   .circle:nth-child(1) {
