@@ -1,0 +1,26 @@
+---
+import ArrowIcon from '../icons/ArrowIcon.astro';
+
+type Props = {
+  url: string;
+  alt: string;
+}
+
+const { url, alt  } = Astro.props;
+---
+
+<article data-glow class="background glow-container blur-effect relative circle col-span-2 min-h-[150px] max-h-[200px] rounded-[24px]">
+    <div data-glow>
+    </div>
+    <div class="w-full h-full flex flex-col">
+      <div class="flex color-white justify-end">
+        <slot name="icon"  />
+      </div>
+      <div class="flex flex-1 items-end ">
+        <div class="w-fit h-fit rotate-50">
+          <ArrowIcon  />
+        </div>
+    </div>
+    </div>
+</article>
+ 

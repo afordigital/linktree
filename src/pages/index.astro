@@ -2,15 +2,20 @@
 import Layout from "@/layouts/Layout.astro";
 import Presentation from "@/components/social/Presentation.astro";
 import Discord from "@/components/social/Discord.astro";
-import Github from "@/components/social/Github.astro";
-import Instagram from "@/components/social/Instagram.astro";
 import Portfolio from "@/components/social/Portfolio.astro";
-import Tiktok from "@/components/social/Tiktok.astro";
 import TwitchStatus from "@/components/social/TwitchStatus.astro";
 import Twitch from "@/components/social/Twitch.astro";
-import Twitter from "@/components/social/Twitter.astro";
 import Youtube from "@/components/social/Youtube.astro";
-import Footer from "@/components/Footer.astro";
+import Social from "@/components/social/Social.astro";
+
+import TwitchIcon from "@/components/icons/TwitchIcon.astro";
+import GithubIcon from "@/components/icons/GithubIcon.astro";
+import InstagramIcon from "@/components/icons/InstagramIcon.astro";
+import YoutubeIcon from "@/components/icons/YoutubeIcon.astro";
+import TiktokIcon from "@/components/icons/TiktokIcon.astro";
+import TwitterIcon from "@/components/icons/TwitterIcon.astro";
+
+
 ---
 
 <Layout title="Afor Linktree">
@@ -20,11 +25,19 @@ import Footer from "@/components/Footer.astro";
     <TwitchStatus />
     <Discord />
     <Portfolio />
-    <Youtube />
-    <Twitter />
-    <Instagram />
-    <Tiktok />
-    <Github />
+    <Youtube /> 
+    <Social url="Twitter" alt='alt' >
+      <TwitterIcon slot="icon"  width="50px" height="50px" />
+    </Social>
+    <Social url="Instagram" alt='alt' >
+      <InstagramIcon slot="icon" width="50px" height="50px" />
+    </Social>
+    <Social url="Tiktok" alt='alt' >
+      <TiktokIcon slot="icon" width="50px" height="50px" />
+    </Social>
+    <Social url="Github" alt='alt' >
+      <GithubIcon slot="icon" width="50px" height="50px" />
+    </Social>
   </main>
 </Layout>
 
