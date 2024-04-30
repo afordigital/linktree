@@ -11,14 +11,22 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.3",
+    "@astrojs/react": "^3.3.1",
+    "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.3.1",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
     "astro": "^4.3.6",
+    "clsx": "^2.1.1",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "framer-motion": "^11.1.7",
     "prettier": "^3.2.5",
-    "typescript": "^5.3.3",
-    "vanilla-tilt": "^1.8.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.3.0",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@unocss/reset": "^0.58.5",
