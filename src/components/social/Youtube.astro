@@ -1,9 +1,9 @@
 ---
+export const prerender = false;
+
 import FINAL_URL from "../../constants/Youtube";
 import CustomArrow from "../CustomArrow.astro";
 import YoutubeIcon from "../icons/YoutubeIcon.astro";
-
-export const prerender = false;
 
 const response = await fetch(FINAL_URL);
 const { title, id } = await response.json();
