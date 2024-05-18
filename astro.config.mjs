@@ -4,13 +4,12 @@ import UnoCSS from 'unocss/astro';
 import vercel from '@astrojs/vercel/serverless';
 import react from "@astrojs/react";
 
-import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [UnoCSS({
     injectReset: true
-  }), react(), tailwind()],
+  }), react()],
   output: 'hybrid',
   adapter: vercel()
 });
