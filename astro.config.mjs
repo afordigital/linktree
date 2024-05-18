@@ -10,6 +10,6 @@ export default defineConfig({
   integrations: [UnoCSS({
     injectReset: true
   }), react()],
-  output: 'server',
+  output: 'hybrid',
   adapter: vercel()
 });
