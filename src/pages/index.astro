@@ -8,21 +8,19 @@ import Twitch from "@/components/social/Twitch.astro";
 import Youtube from "@/components/social/Youtube.astro";
 import Social from "@/components/social/Social.astro";
 
-import TwitchIcon from "@/components/icons/TwitchIcon.astro";
 import GithubIcon from "@/components/icons/GithubIcon.astro";
 import InstagramIcon from "@/components/icons/InstagramIcon.astro";
-import YoutubeIcon from "@/components/icons/YoutubeIcon.astro";
 import TiktokIcon from "@/components/icons/TiktokIcon.astro";
 import TwitterIcon from "@/components/icons/TwitterIcon.astro";
 ---
 
 <Layout title="Afor Linktree">
   <main
-    class="max-w-5xl mx-auto grid w-full h-full grid-cols-8 gap-4 py-30 box"
+    class="max-w-5xl mx-auto grid w-full h-full grid-cols-8 gap-4 py-30 box text-[#E2E2E2]"
   >
     <Presentation />
     <Twitch />
-    <!-- <TwitchStatus /> -->
+    <!-- <TwitchStatus client:load /> -->
     <Discord />
     <Portfolio />
     <Youtube client:load />

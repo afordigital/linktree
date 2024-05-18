@@ -1,4 +1,5 @@
 ---
+import CustomArrow from "../CustomArrow.astro";
 import ArrowIcon from "../icons/ArrowIcon.astro";
 
 type Props = {
@@ -19,8 +20,8 @@ const { url, alt } = Astro.props;
       <slot name="icon" />
     </div>
     <div class="flex flex-1 items-end">
-      <div class="w-fit h-fit rotate-50">
-        <ArrowIcon />
+      <div class="w-fit h-fit">
+        <CustomArrow />
       </div>
     </div>
   </div>

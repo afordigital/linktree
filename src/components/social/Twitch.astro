@@ -3,20 +3,18 @@ import CustomArrow from "../CustomArrow.astro";
 import TwitchIcon from "../icons/TwitchIcon.astro";
 ---
 
-<article
-  class="circle blur-effect flex border-2 border-[#3D2D42] flex-col col-span-3 flex p-6 text-[#E2E2E2] hover:text-white text-4xl bg-[#A970FF] rounded-[24px] min-h-[200px]"
+<a
+  href="https://twitch.tv/afor_digital"
+  target="_blank"
+  class="circle group blur-effect flex border-2 border-[#3D2D42] flex-col col-span-3 flex p-6 hover:text-white text-4xl bg-[#A970FF] rounded-[24px] min-h-[200px]"
 >
   <div class="w-full flex justify-end">
     <TwitchIcon width="55px" height="64px" />
   </div>
-  <a
-    href="https://twitch.tv/afor_digital"
-    target="_blank"
-    class="flex-1 flex group items-end"
-  >
+  <div class="flex-1 flex items-end">
     <div class="flex gap-x-2 items-center">
-      <p>Suscríbete</p>
+      <p>Sígueme</p>
       <CustomArrow />
     </div>
-  </a>
-</article>
+  </div>
+</a>
