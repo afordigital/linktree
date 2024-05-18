@@ -1,17 +1,26 @@
 ---
-import FINAL_URL from '../../constants/Youtube'
+import FINAL_URL from "../../constants/Youtube";
 
 export const prerender = false;
 
-const response = await fetch(FINAL_URL)
-const {title, id} = await response.json()
-
+const response = await fetch(FINAL_URL);
+const { title, id } = await response.json();
 ---
 
-<article class="circle blur-effect col-span-5 relative min-h-[150px] rounded-[24px] overflow-hidden">
-    <div class="w-full h-full flex flex-col justify-center p-4 s-4">
-      <p class="text-white text-2xl font-bold">Último vídeo</p>
-      <a target="_blank" href=`https://www.youtube.com/watch?v=${id}` class="text-white underline font-semibold text-xl">{title}</a>
-    </div>
-  <div style=`background-image: url(https://img.youtube.com/vi/${id}/hqdefault.jpg); background-repeat: no-repeat; opacity: 0.1; background-size: cover; background-position: center;` class="absolute top-0 z-10 w-full h-full"></div>
+<article
+  class="circle blur-effect border-2 border-[#3D2D42] col-span-5 relative min-h-[150px] rounded-[24px] overflow-hidden"
+>
+  <div class="w-full h-full flex flex-col justify-center p-4 s-4">
+    <p class="text-white text-2xl font-bold">Último vídeo</p>
+    <a
+      target="_blank"
+      href=`https://www.youtube.com/watch?v=${id}`
+      class="text-white underline font-semibold text-xl">{title}</a
+    >
+  </div>
+  <div
+    style=`background-image: url(https://img.youtube.com/vi/${id}/hqdefault.jpg); background-repeat: no-repeat; opacity: 0.1; background-size: cover; background-position: center;`
+    class="absolute top-0 z-10 w-full h-full"
+  >
+  </div>
 </article>
