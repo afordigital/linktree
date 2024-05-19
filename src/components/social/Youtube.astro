@@ -1,6 +1,8 @@
 ---
 import CustomArrow from "../CustomArrow.astro";
 import YoutubeIcon from "../icons/YoutubeIcon.astro";
+
+export const prerender = true;
 ---
 
 <article
@@ -11,12 +13,9 @@ import YoutubeIcon from "../icons/YoutubeIcon.astro";
       <div class="w-full h-full flex flex-col justify-center s-4">
         <p class="text-white text-2xl font-bold">Último vídeo</p>
         <div class="flex items-center gap-x-4">
-          <div
-            id="videoTitle"
-            class="text-white underline font-semibold text-xl"
-          >
-            Cargando...
-          </div>
+          <span id="titleSkeleton" class="skeleton w-2/3 h-6 rounded-md"></span>
+          <p id="videoTitle" class="text-white underline font-semibold text-xl">
+          </p>
           <CustomArrow />
         </div>
       </div>
@@ -33,6 +32,28 @@ import YoutubeIcon from "../icons/YoutubeIcon.astro";
   </a>
 </article>
 
+<style>
+  .skeleton {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+</style>
+
 <script type="module">
   const BASE_URL = "https://decapi.me/youtube/latest_video?";
   const USER_ID = "UCkDwFvETfXmnIwpX7lV3F1g";
@@ -46,8 +67,11 @@ import YoutubeIcon from "../icons/YoutubeIcon.astro";
   const videoLink = document.getElementById("videoLink");
   const videoTitle = document.getElementById("videoTitle");
   const videoImage = document.getElementById("videoImage");
+  const titleSkeleton = document.getElementById("titleSkeleton");
 
   videoLink.href = `https://www.youtube.com/watch?v=${id}`;
   videoTitle.textContent = title;
+  titleSkeleton.remove();
+
   videoImage.style.backgroundImage = `url(https://img.youtube.com/vi/${id}/hqdefault.jpg)`;
 </script>
