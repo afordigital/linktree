@@ -1,8 +1,6 @@
 ---
 import CustomArrow from "../CustomArrow.astro";
 import YoutubeIcon from "../icons/YoutubeIcon.astro";
-
-export const prerender = true;
 ---
 
 <article
@@ -54,24 +52,27 @@ export const prerender = true;
   }
 </style>
 
-<script type="module">
+<script is:inline>
   const BASE_URL = "https://decapi.me/youtube/latest_video?";
   const USER_ID = "UCkDwFvETfXmnIwpX7lV3F1g";
   const FORMAT = '{"id":"{id}","title":"{title}"}';
   const QUERY_PARAMS = "no_livestream=0&no_shorts=0";
   const FINAL_URL = `${BASE_URL}id=${USER_ID}&format=${FORMAT}&${QUERY_PARAMS}`;
 
-  const response = await fetch(FINAL_URL);
-  const { title, id } = await response.json();
+  fetch(FINAL_URL)
+    .then((response) => response.json())
+    .then((data) => {
+      const { title, id } = data;
 
-  const videoLink = document.getElementById("videoLink");
-  const videoTitle = document.getElementById("videoTitle");
-  const videoImage = document.getElementById("videoImage");
-  const titleSkeleton = document.getElementById("titleSkeleton");
+      const videoLink = document.getElementById("videoLink");
+      const videoTitle = document.getElementById("videoTitle");
+      const videoImage = document.getElementById("videoImage");
+      const titleSkeleton = document.getElementById("titleSkeleton");
 
-  videoLink.href = `https://www.youtube.com/watch?v=${id}`;
-  videoTitle.textContent = title;
-  titleSkeleton.remove();
+      videoLink.href = `https://www.youtube.com/watch?v=${id}`;
+      videoTitle.textContent = title;
+      titleSkeleton.remove();
 
-  videoImage.style.backgroundImage = `url(https://img.youtube.com/vi/${id}/hqdefault.jpg)`;
+      videoImage.style.backgroundImage = `url(https://img.youtube.com/vi/${id}/hqdefault.jpg)`;
+    });
 </script>
