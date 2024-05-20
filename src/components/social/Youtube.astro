@@ -1,23 +1,17 @@
 ---
-export const prerender = false;
-
-import FINAL_URL from "../../constants/Youtube";
 import CustomArrow from "../CustomArrow.astro";
 import YoutubeIcon from "../icons/YoutubeIcon.astro";
-
-const response = await fetch(FINAL_URL);
-const { title, id } = await response.json();
 ---
 
-<article
-  class="circle group block text-white blur-effect border-2 border-[#3D2D42] col-span-5 relative min-h-[150px] rounded-[24px] overflow-hidden"
->
-  <a href=`https://www.youtube.com/watch?v=${id}` target="_blank">
+<article class="h-full">
+  <a id="videoLink" href=`https://www.youtube.com/` target="_blank">
     <div class="flex items-center w-full h-full p-6">
       <div class="w-full h-full flex flex-col justify-center s-4">
         <p class="text-white text-2xl font-bold">Último vídeo</p>
         <div class="flex items-center gap-x-4">
-          <div class="text-white underline font-semibold text-xl">{title}</div>
+          <span id="titleSkeleton" class="skeleton w-2/3 h-6 rounded-md"></span>
+          <p id="videoTitle" class="text-white underline font-semibold text-xl">
+          </p>
           <CustomArrow />
         </div>
       </div>
@@ -25,10 +19,58 @@ const { title, id } = await response.json();
       <YoutubeIcon width="64px" height="48px" />
 
       <div
-        style=`background-image: url(https://img.youtube.com/vi/${id}/hqdefault.jpg); background-repeat: no-repeat; opacity: 0.1; background-size: cover; background-position: center;`
-        class="absolute top-0 z-10 w-full h-full"
+        id="videoImage"
+        style=`background-repeat: no-repeat; opacity: 0.1; background-size: cover; background-position: center;`
+        class="absolute top-0 left-0 z-10 w-full h-full"
       >
       </div>
     </div>
   </a>
 </article>
+
+<style>
+  .skeleton {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+</style>
+
+<script is:inline>
+  const BASE_URL = "https://decapi.me/youtube/latest_video?";
+  const USER_ID = "UCkDwFvETfXmnIwpX7lV3F1g";
+  const FORMAT = '{"id":"{id}","title":"{title}"}';
+  const QUERY_PARAMS = "no_livestream=0&no_shorts=0";
+  const FINAL_URL = `${BASE_URL}id=${USER_ID}&format=${FORMAT}&${QUERY_PARAMS}`;
+
+  fetch(FINAL_URL)
+    .then((response) => response.json())
+    .then((data) => {
+      const { title, id } = data;
+
+      const videoLink = document.getElementById("videoLink");
+      const videoTitle = document.getElementById("videoTitle");
+      const videoImage = document.getElementById("videoImage");
+      const titleSkeleton = document.getElementById("titleSkeleton");
+
+      videoLink.href = `https://www.youtube.com/watch?v=${id}`;
+      videoTitle.textContent = title;
+      titleSkeleton.remove();
+
+      videoImage.style.backgroundImage = `url(https://img.youtube.com/vi/${id}/hqdefault.jpg)`;
+    });
+</script>

@@ -1,0 +1,151 @@
+---
+interface Props {
+  className?: string;
+}
+const { className } = Astro.props;
+---
+
+<article
+  data-glow
+  class={`group  text-[#E2E2E2] blur-effect border-2 border-[#3D2D42] relative rounded-[24px] h-full ${className}`}
+>
+  <div data-glow></div>
+  <slot />
+</article>
+
+<style>
+  .blur-effect {
+    background: hsla(286, 58%, 16%, 0.28);
+    backdrop-filter: blur(3px);
+    border-radius: 1rem;
+    box-shadow:
+      0 8px 16px 0 rgba(255, 100, 69, 0),
+      0 2px 10px 2px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px 0 hsla(0, 0%, 100%, 0.11),
+      0 1px 2px 0 rgba(0, 0, 0, 0.5),
+      inset 0px 0px 30px -1px hsla(286, 58%, 16%, 0.4);
+    box-shadow: inset 13px 1px 79px -27px rgba(77, 54, 82, 0.6);
+  }
+  :root {
+    --radius: 24;
+    --backup-border: var(--backdrop);
+  }
+
+  article {
+    --outer: 1;
+    --base: 220;
+    --spread: 200;
+  }
+
+  /* Glow specific styles */
+  [data-glow] {
+    --border-size: calc(var(--border, 2) * 1px);
+    --spotlight-size: calc(var(--size, 150) * 1px);
+    --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+    background-image: radial-gradient(
+      var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+      hsl(
+        var(--hue, 210) calc(var(--saturation, 100) * 1%)
+          calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)
+      ),
+      transparent
+    );
+    background-size: calc(100% + (2 * var(--border-size)))
+      calc(100% + (2 * var(--border-size)));
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    position: relative;
+    touch-action: none;
+  }
+
+  [data-glow]::before,
+  [data-glow]::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: calc(var(--border-size) * -1);
+    border: var(--border-size) solid transparent;
+    border-radius: calc(var(--radius) * 1px);
+    background-attachment: fixed;
+    background-size: calc(100% + (2 * var(--border-size)))
+      calc(100% + (2 * var(--border-size)));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    mask: linear-gradient(transparent, transparent),
+      linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+  }
+
+  /* This is the emphasis light */
+  [data-glow]::before {
+    background-image: radial-gradient(
+      calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
+        calc(var(--x, 1) * 1px) calc(var(--y, 1) * 1px),
+      hsl(
+        var(--hue, 210) calc(var(--saturation, 100) * 1%)
+          calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)
+      ),
+      transparent 100%
+    );
+    filter: brightness(2);
+  }
+  /* This is the spotlight */
+  [data-glow]::after {
+    background-image: radial-gradient(
+      calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
+        calc(var(--x, 1) * 1px) calc(var(--y, 1) * 1px),
+      hsl(0 100% 100% / var(--border-light-opacity, 1)),
+      transparent 100%
+    );
+  }
+  [data-glow] [data-glow] {
+    position: absolute;
+    inset: 0;
+    will-change: filter;
+    opacity: var(--outer, 1);
+  }
+  [data-glow] > [data-glow] {
+    border-radius: calc(var(--radius) * 1px);
+    border-width: calc(var(--border-size) * 20);
+    filter: blur(calc(var(--border-size) * 10));
+    background: none;
+    pointer-events: none;
+  }
+  [data-glow] > [data-glow]::before {
+    inset: -10px;
+    border-width: 10px;
+  }
+  [data-glow] [data-glow] {
+    border: none;
+  }
+  [data-glow] :is(a, button) {
+    border-radius: calc(var(--radius) * 1px);
+    border: var(--border-size) solid transparent;
+  }
+  [data-glow] :is(a, button) [data-glow] {
+    background: none;
+  }
+  [data-glow] :is(a, button) [data-glow]::before {
+    inset: calc(var(--border-size) * -1);
+    border-width: calc(var(--border-size) * 1);
+  }
+</style>
+
+<script>
+  const syncPointer = ({ x, y }: { x: number; y: number }) => {
+    document.documentElement.style.setProperty("--x", x.toFixed(2));
+    document.documentElement.style.setProperty(
+      "--xp",
+      (x / window.innerWidth).toFixed(2)
+    );
+    document.documentElement.style.setProperty("--y", y.toFixed(2));
+    document.documentElement.style.setProperty(
+      "--yp",
+      (y / window.innerHeight).toFixed(2)
+    );
+  };
+  syncPointer({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  document.body.addEventListener("pointermove", syncPointer);
+</script>
