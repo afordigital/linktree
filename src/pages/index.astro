@@ -12,26 +12,31 @@ import InstagramIcon from "@/components/icons/InstagramIcon.astro";
 import TiktokIcon from "@/components/icons/TiktokIcon.astro";
 import TwitterIcon from "@/components/icons/TwitterIcon.astro";
 import Card from "@/components/Card.astro";
+
+import { getLangFromUrl } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout title="Afor Linktree">
   <main
-    class="max-w-sm lg:max-w-5xl mx-auto flex flex-col lg:grid w-full h-full grid-cols-8 gap-4 py-30 box text-[#E2E2E2] overflow-hidden"
+    lang={lang}
+    class="max-w-sm sm:max-w-3xl lg:max-w-5xl px-4 mx-auto flex flex-col lg:grid w-full h-full grid-cols-8 gap-4 py-30 box text-[#E2E2E2] overflow-hidden"
   >
     <Card className="circle col-span-5">
       <Presentation />
     </Card>
-    <Card className="circle row col-span-3 min-h-[200px]">
+    <Card className="circle row col-span-3">
       <Twitch />
     </Card>
     <!-- <TwitchStatus client:load /> -->
-    <Card className="circle row-span-2 col-span-3 p-6 min-h-[200px]">
+    <Card className="circle row-span-2 col-span-3 p-6">
       <Discord />
     </Card>
     <Card className="circle col-span-5">
       <Portfolio />
     </Card>
-    <Card className="circle col-span-5 min-h-[150px]">
+    <Card className="circle col-span-5">
       <Youtube />
     </Card>
     <Card className="col-span-2">

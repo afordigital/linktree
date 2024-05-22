@@ -1,5 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <article class="px-8 py-4 flex gap-x-4 items-center justify-center h-full">
@@ -11,8 +14,7 @@
   <div>
     <h1 class="font-bold text-[36px]">¡Eyyy!</h1>
     <p class="text-[20px]">
-      Soy front-end developer y dedico todos mis días a aprender y divulgar lo
-      que aprendo.
+      {t("components.social.presentation")}
     </p>
   </div>
 </article>

@@ -1,6 +1,11 @@
 ---
 import CustomArrow from "../CustomArrow.astro";
 import TwitchIcon from "../icons/TwitchIcon.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <a
@@ -13,7 +18,7 @@ import TwitchIcon from "../icons/TwitchIcon.astro";
   </div>
   <div class="flex-1 flex items-end">
     <div class="flex gap-x-2 items-center">
-      <p>Sígueme</p>
+      <p>{t("components.title.twitch")}</p>
       <CustomArrow />
     </div>
   </div>

@@ -1,13 +1,18 @@
 ---
 import CustomArrow from "../CustomArrow.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <article class="flex items-center p-6">
   <a href="https://personal-web-aforina.vercel.app/" target="_blank" class="">
     <div class="flex flex-col h-full justify-center gap-4">
-      <h2 class="text-4xl font-bold">Mi portfolio</h2>
+      <h2 class="text-4xl font-bold">{t("components.title.portfolio")}</h2>
       <div class="flex items-center gap-x-2">
-        <p class="text-xl">Conoces más sobre mí y mis proyectos</p>
+        <p class="text-xl">{t("components.title.portfolio.description")}</p>
         <CustomArrow />
       </div>
     </div>

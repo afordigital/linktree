@@ -1,13 +1,20 @@
 ---
 import CustomArrow from "../CustomArrow.astro";
 import YoutubeIcon from "../icons/YoutubeIcon.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<article class="h-full">
+<article class="h-full min-h-[150px]">
   <a id="videoLink" href=`https://www.youtube.com/` target="_blank">
     <div class="flex items-center w-full h-full p-6">
       <div class="w-full h-full flex flex-col justify-center s-4">
-        <p class="text-white text-2xl font-bold">Último vídeo</p>
+        <p class="text-white text-2xl font-bold">
+          {t("components.title.youtube")}
+        </p>
         <div class="flex items-center gap-x-4">
           <span id="titleSkeleton" class="skeleton w-2/3 h-6 rounded-md"></span>
           <p id="videoTitle" class="text-white underline font-semibold text-xl">
