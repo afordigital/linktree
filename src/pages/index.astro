@@ -16,7 +16,7 @@ import Card from "@/components/Card.astro";
 
 <Layout title="Afor Linktree">
   <main
-    class="max-w-5xl mx-auto grid w-full h-full grid-cols-8 gap-4 py-30 box text-[#E2E2E2] overflow-hidden"
+    class="max-w-sm lg:max-w-5xl mx-auto flex flex-col lg:grid w-full h-full grid-cols-8 gap-4 py-30 box text-[#E2E2E2] overflow-hidden"
   >
     <Card className="circle col-span-5">
       <Presentation />
@@ -55,69 +55,69 @@ import Card from "@/components/Card.astro";
       </Social>
     </Card>
   </main>
+
+  <style is:global>
+    :root {
+      --slide-in: slide-in 0.3s ease-in-out backwards;
+      --fade-in: fade-in 0.3s ease-in-out backwards;
+    }
+    .box {
+      animation: base-anim 0.3s ease-in-out;
+    }
+
+    .circle:nth-child(1) {
+      animation:
+        var(--fade-in) 0.2s,
+        var(--slide-in) 0.2s;
+    }
+    .circle:nth-child(2) {
+      animation:
+        var(--fade-in) 0.4s,
+        var(--slide-in) 0.4s;
+    }
+    .circle:nth-child(3) {
+      animation:
+        var(--fade-in) 0.6s,
+        var(--slide-in) 0.6s;
+    }
+    .circle:nth-child(4) {
+      animation:
+        var(--fade-in) 0.8s,
+        var(--slide-in) 0.8s;
+    }
+
+    @keyframes base-anim {
+      0% {
+        transform: scale(0);
+      }
+      80% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @keyframes slide-in {
+      0%,
+      50% {
+        transform: translateY(10px);
+      }
+      80% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    @keyframes fade-in {
+      0% {
+        background: transparent;
+        opacity: 0;
+      }
+      100% {
+        background: inherit;
+        opacity: 100%;
+      }
+    }
+  </style>
 </Layout>
-
-<style is:global>
-  :root {
-    --slide-in: slide-in 0.3s ease-in-out backwards;
-    --fade-in: fade-in 0.3s ease-in-out backwards;
-  }
-  .box {
-    animation: base-anim 0.3s ease-in-out;
-  }
-
-  .circle:nth-child(1) {
-    animation:
-      var(--fade-in) 0.2s,
-      var(--slide-in) 0.2s;
-  }
-  .circle:nth-child(2) {
-    animation:
-      var(--fade-in) 0.4s,
-      var(--slide-in) 0.4s;
-  }
-  .circle:nth-child(3) {
-    animation:
-      var(--fade-in) 0.6s,
-      var(--slide-in) 0.6s;
-  }
-  .circle:nth-child(4) {
-    animation:
-      var(--fade-in) 0.8s,
-      var(--slide-in) 0.8s;
-  }
-
-  @keyframes base-anim {
-    0% {
-      transform: scale(0);
-    }
-    80% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  @keyframes slide-in {
-    0%,
-    50% {
-      transform: translateY(10px);
-    }
-    80% {
-      transform: translateY(-5px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-  @keyframes fade-in {
-    0% {
-      background: transparent;
-      opacity: 0;
-    }
-    100% {
-      background: inherit;
-      opacity: 100%;
-    }
-  }
-</style>
