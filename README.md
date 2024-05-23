@@ -8,8 +8,7 @@ Linktree is a personal presentation application, so that people can access both 
 
 ## Contributors
 
-<a href="https://github.com/afordigital/linktree/graphs/contributors">
-</a>
+<a href="https://github.com/afordigital/linktree/graphs/contributors"> <img src="https://contrib.rocks/image?repo=afordigital/linktree" /> </a>
 
 ## Screenshots
 ![972shots_so](https://github.com/afordigital/linktree/assets/43246362/3b5fe956-0acc-46e3-906f-668caf5a20a8)
