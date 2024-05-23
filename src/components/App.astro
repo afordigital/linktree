@@ -1,0 +1,123 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Card from "./Card.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import InstagramIcon from "./icons/InstagramIcon.astro";
+import TiktokIcon from "./icons/TiktokIcon.astro";
+import TwitterIcon from "./icons/TwitterIcon.astro";
+import Discord from "./social/Discord.astro";
+import Portfolio from "./social/Portfolio.astro";
+import Presentation from "./social/Presentation.astro";
+import Social from "./social/Social.astro";
+import Twitch from "./social/Twitch.astro";
+import Youtube from "./social/Youtube.astro";
+---
+
+<Layout title="Afor Linktree">
+    <main
+      class="max-w-sm sm:max-w-3xl lg:max-w-5xl px-4 mx-auto flex flex-col lg:grid w-full h-full grid-cols-8 gap-4 py-30 box text-[#E2E2E2] overflow-hidden"
+    >
+      <Card className="circle col-span-5">
+        <Presentation />
+      </Card>
+      <Card className="circle row col-span-3">
+        <Twitch />
+      </Card>
+      <!-- <TwitchStatus client:load /> -->
+      <Card className="circle row-span-2 col-span-3 p-6">
+        <Discord />
+      </Card>
+      <Card className="circle col-span-5">
+        <Portfolio />
+      </Card>
+      <Card className="circle col-span-5">
+        <Youtube />
+      </Card>
+      <Card className="col-span-2">
+        <Social url="Twitter" alt="alt">
+          <TwitterIcon slot="icon" width="50px" height="50px" />
+        </Social>
+      </Card>
+      <Card className="col-span-2">
+        <Social url="Instagram" alt="alt">
+          <InstagramIcon slot="icon" width="50px" height="50px" />
+        </Social>
+      </Card>
+      <Card className="col-span-2">
+        <Social url="Tiktok" alt="alt">
+          <TiktokIcon slot="icon" width="50px" height="50px" />
+        </Social>
+      </Card>
+      <Card className="col-span-2">
+        <Social url="Github" alt="alt">
+          <GithubIcon slot="icon" width="50px" height="50px" />
+        </Social>
+      </Card>
+    </main>
+  
+    <style is:global>
+      :root {
+        --slide-in: slide-in 0.3s ease-in-out backwards;
+        --fade-in: fade-in 0.3s ease-in-out backwards;
+      }
+      .box {
+        animation: base-anim 0.3s ease-in-out;
+      }
+  
+      .circle:nth-child(1) {
+        animation:
+          var(--fade-in) 0.2s,
+          var(--slide-in) 0.2s;
+      }
+      .circle:nth-child(2) {
+        animation:
+          var(--fade-in) 0.4s,
+          var(--slide-in) 0.4s;
+      }
+      .circle:nth-child(3) {
+        animation:
+          var(--fade-in) 0.6s,
+          var(--slide-in) 0.6s;
+      }
+      .circle:nth-child(4) {
+        animation:
+          var(--fade-in) 0.8s,
+          var(--slide-in) 0.8s;
+      }
+  
+      @keyframes base-anim {
+        0% {
+          transform: scale(0);
+        }
+        80% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes slide-in {
+        0%,
+        50% {
+          transform: translateY(10px);
+        }
+        80% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      @keyframes fade-in {
+        0% {
+          background: transparent;
+          opacity: 0;
+        }
+        100% {
+          background: inherit;
+          opacity: 100%;
+        }
+      }
+    </style>
+  </Layout>
+  
