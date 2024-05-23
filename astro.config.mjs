@@ -11,5 +11,12 @@ export default defineConfig({
     injectReset: true
   }), react()],
   output: 'hybrid',
-  adapter: vercel()
+  adapter: vercel(),
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+    routing: {
+      prefixDefaultLocale: true
+    }
+  }
 });
