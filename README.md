@@ -9,13 +9,11 @@ Linktree is a personal presentation application, so that people can access both 
 ## Contributors
 
 <a href="https://github.com/afordigital/linktree/graphs/contributors">
-  <img src="![screenshot-1](https://github.com/afordigital/linktree/assets/43246362/65f85db8-547c-442f-9d8a-b38ccf5f89b6)
-https://contrib.rocks/image?repo=afordigital/linktree" />
 </a>
 
 ## Screenshots
-![screenshot-1](https://github.com/afordigital/linktree/assets/43246362/59b2b98a-6776-40b2-9d84-53e3407a40cc)
-![screenshot-2](https://github.com/afordigital/linktree/assets/43246362/6e4e1077-7341-46dd-9aea-e71712ba64ab)
+![972shots_so](https://github.com/afordigital/linktree/assets/43246362/3b5fe956-0acc-46e3-906f-668caf5a20a8)
+![576shots_so](https://github.com/afordigital/linktree/assets/43246362/55893488-c323-47f3-86bf-bc95fef2922e)
 
 ## Commands
 
