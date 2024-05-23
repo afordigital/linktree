@@ -1,0 +1,12 @@
+/**
+ * It generates the Vercel Edge Middleware file.
+ *
+ * It creates a temporary file, the edge middleware, with some dynamic info.
+ *
+ * Then this file gets bundled with esbuild. The bundle phase will inline the Astro middleware code.
+ *
+ * @param astroMiddlewareEntryPoint
+ * @param outPath
+ * @returns {Promise<URL>} The path to the bundled file
+ */
+export declare function generateEdgeMiddleware(astroMiddlewareEntryPointPath: URL, vercelEdgeMiddlewareHandlerPath: URL, outPath: URL, middlewareSecret: string): Promise<URL>;

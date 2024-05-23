@@ -1,0 +1,49 @@
+import { onCLS, onFCP, onFID, onLCP, onTTFB } from "web-vitals";
+const SPEED_INSIGHTS_INTAKE = "https://vitals.vercel-analytics.com/v1/vitals";
+const getConnectionSpeed = () => {
+  return "connection" in navigator && navigator["connection"] && "effectiveType" in navigator["connection"] ? navigator["connection"]["effectiveType"] : "";
+};
+const sendToSpeedInsights = (metric, options) => {
+  const body = {
+    dsn: options.analyticsId,
+    id: metric.id,
+    page: options.path,
+    href: location.href,
+    event_name: metric.name,
+    value: metric.value.toString(),
+    speed: getConnectionSpeed()
+  };
+  const blob = new Blob([new URLSearchParams(body).toString()], {
+    type: "application/x-www-form-urlencoded"
+  });
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(SPEED_INSIGHTS_INTAKE, blob);
+  } else
+    fetch(SPEED_INSIGHTS_INTAKE, {
+      body: blob,
+      method: "POST",
+      credentials: "omit",
+      keepalive: true
+    });
+};
+function collectWebVitals() {
+  const analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID;
+  if (!analyticsId) {
+    console.error("[Speed Insights] VERCEL_ANALYTICS_ID not found");
+    return;
+  }
+  const options = { path: window.location.pathname, analyticsId };
+  try {
+    onFID((metric) => sendToSpeedInsights(metric, options));
+    onTTFB((metric) => sendToSpeedInsights(metric, options));
+    onLCP((metric) => sendToSpeedInsights(metric, options));
+    onCLS((metric) => sendToSpeedInsights(metric, options));
+    onFCP((metric) => sendToSpeedInsights(metric, options));
+  } catch (err) {
+    console.error("[Speed Insights]", err);
+  }
+}
+const mode = import.meta.env.MODE;
+if (mode === "production") {
+  collectWebVitals();
+}
