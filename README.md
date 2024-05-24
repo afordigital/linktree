@@ -37,4 +37,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## Deployment
 
-Vercel: [Linktree](https://aforcado.vercel.app)
+Vercel: [Linktree](https://www.afor.digital/)
