@@ -1,0 +1,11 @@
+---
+import { defaultLang } from "@/i18n/ui"
+
+export const prerender = false
+
+const preferredLanguage = Astro.preferredLocale
+if (!preferredLanguage) {
+  return Astro.redirect(defaultLang)
+}
+return Astro.redirect(preferredLanguage)
+---
