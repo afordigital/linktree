@@ -1,21 +1,21 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Presentation from "@/components/social/Presentation.astro";
-import Discord from "@/components/social/Discord.astro";
-import Portfolio from "@/components/social/Portfolio.astro";
-import Twitch from "@/components/social/Twitch.astro";
-import Youtube from "@/components/social/Youtube.astro";
-import Social from "@/components/social/Social.astro";
+import Layout from '@/layouts/Layout.astro'
+import Presentation from '@/components/social/Presentation.astro'
+import Discord from '@/components/social/Discord.astro'
+import Portfolio from '@/components/social/Portfolio.astro'
+import Twitch from '@/components/social/Twitch.astro'
+import Youtube from '@/components/social/Youtube.astro'
+import Social from '@/components/social/Social.astro'
 
-import GithubIcon from "@/components/icons/GithubIcon.astro";
-import InstagramIcon from "@/components/icons/InstagramIcon.astro";
-import TiktokIcon from "@/components/icons/TiktokIcon.astro";
-import TwitterIcon from "@/components/icons/TwitterIcon.astro";
-import Card from "@/components/Card.astro";
+import GithubIcon from '@/components/icons/GithubIcon.astro'
+import InstagramIcon from '@/components/icons/InstagramIcon.astro'
+import TiktokIcon from '@/components/icons/TiktokIcon.astro'
+import TwitterIcon from '@/components/icons/TwitterIcon.astro'
+import Card from '@/components/Card.astro'
 
-import { getLangFromUrl } from "../i18n/utils";
+import { getLangFromUrl } from '../i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url)
 ---
 
 <Layout title="Afor Linktree">
@@ -40,22 +40,22 @@ const lang = getLangFromUrl(Astro.url);
       <Youtube />
     </Card>
     <Card className="col-span-2">
-      <Social url="Twitter" alt="alt">
+      <Social url="https://bsky.app/profile/afordigital.bsky.social" alt="Bluesky profile">
         <TwitterIcon slot="icon" width="50px" height="50px" />
       </Social>
     </Card>
     <Card className="col-span-2">
-      <Social url="Instagram" alt="alt">
+      <Social url="https://www.instagram.com/afor_digital/" alt="Instagram profile">
         <InstagramIcon slot="icon" width="50px" height="50px" />
       </Social>
     </Card>
     <Card className="col-span-2">
-      <Social url="Tiktok" alt="alt">
+      <Social url="https://www.tiktok.com/@afor_digital" alt="Tiktok profile">
         <TiktokIcon slot="icon" width="50px" height="50px" />
       </Social>
     </Card>
     <Card className="col-span-2">
-      <Social url="Github" alt="alt">
+      <Social url="https://github.com/afordigital" alt="Github profile">
         <GithubIcon slot="icon" width="50px" height="50px" />
       </Social>
     </Card>
